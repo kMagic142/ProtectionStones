@@ -158,6 +158,8 @@ public class ArgInfo implements PSCommandArg {
 
     @Override
     public List<String> tabComplete(CommandSender sender, String alias, String[] args) {
+        if(!(sender instanceof Player)) return null;
+        if(args[0].equalsIgnoreCase("info")) return Collections.singletonList("members");
         return null;
     }
 

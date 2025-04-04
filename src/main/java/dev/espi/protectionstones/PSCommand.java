@@ -68,12 +68,13 @@ public class PSCommand extends Command {
         if (args.length == 1) {
             List<String> l = new ArrayList<>();
             for (PSCommandArg ps : ProtectionStones.getInstance().getCommandArguments()) {
+                if(ps.getNames().contains("help")) continue;
                 boolean hasPerm = false;
                 if (ps.getPermissionsToExecute() == null) {
                     hasPerm = true;
                 } else {
                     for (String perm : ps.getPermissionsToExecute()) {
-                        if (sender.hasPermission(perm)) {
+                        if (sender.hasPermission(perm) || (ps.getNames().contains("info") && sender.hasPermission("protectionstones.info.members"))) {
                             hasPerm = true;
                             break;
                         }

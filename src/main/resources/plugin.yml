@@ -8,6 +8,11 @@ softdepend: [Vault, PlaceholderAPI, LuckPerms]
 main: dev.espi.protectionstones.ProtectionStones
 api-version: 1.17
 
+commands:
+  protectionstones:
+    aliases: [ps]
+    description: main command
+
 permissions:
   protectionstones.create:
     description: Protect a region by placing a ProtectionStones block.
